@@ -28,7 +28,7 @@
             font-style: normal;
             background-size: cover;
             background-position: center;
-            position: relative;
+            position: relative; /* Needed for absolute positioning of circles */
             overflow-x: hidden;
         }
         .card {
@@ -471,7 +471,7 @@
         /* Middle circle */
         .circle.middle {
             top: 50%; /* Adjust position as needed */
-            left: 100%; /* Adjust position as needed */
+            /* left: 100%; */
             transform: translateY(-50%);
         }
 
@@ -530,25 +530,82 @@
         .banner{
             border-radius: 35px;
         }
+        .loader{
+            background-color: #fcd933;
+        }
     </style>
 </head>
 <body>
+    <!-- <div class="loader vh-100 vw-100 top-0 position-fixed z-3 overflow-hidden text-center d-flex justify-content-center align-items-center">
+        <img src="imgs/Preloader.gif" alt="loader" height="150">
+    </div> -->
     <div class="main-container container-fluid">
         <div class="px-3">
-            <div class="text-center">
+            <!-- <div class="text-center">
                 <img class="img-fluid my-3 banner" src="imgs/banner.png" alt="banner">
+            </div> -->
+            <div id="carouselExampleAutoplaying" class="carousel slide mt-4" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                    <img src="imgs/homrbanner1.png" class="d-block w-100 rounded" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                    <img src="imgs/homrbanner2.png" class="d-block w-100 rounded" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                    <img src="imgs/homrbanner3.png" class="d-block w-100 rounded" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
             <div id="menu_wrap"></div>
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col-12 col-lg-6 p-4">
+                        <img class="img-fluid my-3 border rounded-3" src="imgs/deal01.png" alt="deal01">
+                    </div>
+                    <div class="col-12 col-lg-6 p-4">
+                        <img class="img-fluid my-3 border rounded-3" src="imgs/deal02.png" alt="deal01">
+                    </div>
+                    <div class="col-12 col-lg-6 p-4">
+                        <img class="img-fluid my-3 border rounded-3" src="imgs/deal03.png" alt="deal01">
+                    </div>
+                    <div class="col-12 col-lg-6 p-4">
+                        <img class="img-fluid my-3 border rounded-3" src="imgs/deal04.png" alt="deal01">
+                    </div>
+                    <div class="col-12 col-lg-6 p-4">
+                        <img class="img-fluid my-3 border rounded-3" src="imgs/deal05.png" alt="deal01">
+                    </div>
+                    <div class="col-12 col-lg-6 p-4">
+                        <img class="img-fluid my-3 border rounded-3" src="imgs/deal06.png" alt="deal01">
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="footer bg-dark mt-5 px-3 py-2 text-end">Powered by Shoul Nadeem</div>
     </div>
     <div class="circle top"></div>
-    <div class="circle middle"></div>
+    <!-- <div class="circle middle"></div> -->
     <div class="circle bottom"></div>
     <div class="cursor"></div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // $(function() {
+        //     $(".loader").addClass("d-none");
+        // });
         let index = 1;
         let menus = {
             'Soups':[
@@ -1955,7 +2012,7 @@
                                     <h2 class="category_name">`+key+`</h2>
                                 </div>
                                 <div class="col-5 h-100 category_banner bg-white">
-                                    <div class="h-100 category_banner_inner" style="background-image:url('imgs/Bun Kebab Category.png');"></div>
+                                    <div class="h-100 category_banner_inner" style="background-image:url('imgs/`+key+` Category.png');"></div>
                                 </div>
                             </div>
                         </div>
